@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:weightmate/screens/splash_screen.dart';
 import 'package:weightmate/utils/colors.dart';
+import 'services/notification_service.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initNotification();
+  tz.initializeTimeZones();
   runApp(const MyApp());
 }
 

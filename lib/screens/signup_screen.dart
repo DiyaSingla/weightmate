@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weightmate/screens/home_screen.dart';
 import 'package:weightmate/screens/signin_screen.dart';
+import '../services/notification_service.dart';
 import '../utils/widgets.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -15,7 +16,6 @@ class SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   TimeOfDay? _notificationTime;
-  //final NotificationService _notificationService = NotificationService();
 
   @override
   Widget build(BuildContext context) {
@@ -90,8 +90,7 @@ class SignUpPageState extends State<SignUpPage> {
 
             // Sign Up Button
             signInSignUpButton(context, false, () {
-              // _notificationService
-              //     .scheduleDailyNotification(_notificationTime!);
+              NotificationService().scheduleNotification(_notificationTime!);
               Navigator.push(
                   context,
                   MaterialPageRoute(
